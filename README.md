@@ -20,7 +20,7 @@ This is a simple Flappy Bird built using **Unity** and **C#** as part of my lear
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/flappy-bird-unity.git
+   git clone https://github.com/Erfan-Khan-Dhrubo/Flappy-Bird-Game.git
    ```
 2. Open the project in **Unity Hub**
 
