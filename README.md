@@ -8,6 +8,7 @@ This is a simple Flappy Bird built using **Unity** and **C#** as part of my lear
 - Randomly generated pipes for dynamic gameplay
 - Score tracking system
 - Game over and restart functionality
+- High score saving between game sessions
 - Classic Flappy Bird-style visuals
 
 ## 🛠️ Built With
