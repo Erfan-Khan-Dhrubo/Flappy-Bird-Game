@@ -1,7 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class bird : MonoBehaviour
 {
+    public TMP_Text score;
+    public TMP_Text highscore;
+    public GameObject highscoreText;
 
     public Rigidbody2D birdRigidbody2D;
     public float jumpForce = 20;
@@ -16,6 +20,7 @@ public class bird : MonoBehaviour
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<logicUpdater>();
+        highscore.text = "High Score: " + PlayerPrefs.GetInt("Highscore", 0).ToString();
     }
     
     // Update is called once per frame
@@ -41,6 +46,16 @@ public class bird : MonoBehaviour
     {
         logic.GameOver();
         _birdIsAlive = false;
+        int scoreValue = int.Parse(score.text);
+        if (scoreValue > PlayerPrefs.GetInt("Highscore", 0))
+        {
+            PlayerPrefs.SetInt("Highscore", scoreValue);
+            highscore.text = "High Score: " + scoreValue.ToString();
+            highscoreText.SetActive(true);
+            
+        }
+
+        
     }
     
     

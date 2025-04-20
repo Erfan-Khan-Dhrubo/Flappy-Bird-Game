@@ -8,6 +8,7 @@
     public TMP_Text scoreText;
 
     public GameObject gameOverText;
+    
     public void AddScore()
     {
         playerScore++;
