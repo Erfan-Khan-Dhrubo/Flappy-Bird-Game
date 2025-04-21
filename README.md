@@ -34,7 +34,14 @@ This is a simple Flappy Bird built using **Unity** and **C#** as part of my lear
 - Generate obstacles with random positions
 - Implement collision detection and scoring
 
-## 📸 Screenshots
+## Gameplay Demonstration
 
-*Add screenshots of your game here if you have any.*
+### A visual representation of the game:
+
+<img src="./game visualization/game view.jpg">
+
+### Video
+
+Watch the gameplay:
+[Gameplay Video](./game%20visualization/gameplay.mp4)
 
