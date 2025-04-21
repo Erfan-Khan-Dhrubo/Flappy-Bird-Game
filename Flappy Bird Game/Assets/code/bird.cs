@@ -18,7 +18,7 @@ public class bird : MonoBehaviour
     
     //public AudioSource gameOverAudio;
     void Start()
-    {
+    {  
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<logicUpdater>();
         highscore.text = "High Score: " + PlayerPrefs.GetInt("Highscore", 0).ToString();
     }
