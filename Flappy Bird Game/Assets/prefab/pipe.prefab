@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logic: {fileID: 0}
+  bird: {fileID: 0}
   source: {fileID: 7290496519915948379}
 --- !u!82 &7290496519915948379
 AudioSource:

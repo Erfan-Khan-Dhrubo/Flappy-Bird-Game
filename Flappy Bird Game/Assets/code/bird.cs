@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class bird : MonoBehaviour
 {
@@ -12,6 +13,26 @@ public class bird : MonoBehaviour
 
     public logicUpdater logic;
     private bool _birdIsAlive = true;
+
+    private bool BirdIsAlive
+    {
+        get => _birdIsAlive;
+        set
+        {
+            _birdIsAlive = value;
+            if (!_birdIsAlive)
+            {
+                gameOverSound.Play();  
+            }
+            
+        }
+        
+        
+    }
+    
+    [FormerlySerializedAs("_isDead")] public bool isDead = false;
+
+    public AudioSource gameOverSound;
     
     private float _upperDeadZone = 25;
     private float _lowerDeadZone = -22;
@@ -26,34 +47,52 @@ public class bird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _birdIsAlive)
+        if (Input.GetKeyDown(KeyCode.Space) && BirdIsAlive)
         {
             birdRigidbody2D.linearVelocity = Vector2.up * jumpForce;
             // vector.up means (0,1)
         }
 
-        if (transform.position.y > _upperDeadZone || transform.position.y < _lowerDeadZone)
+        if (!isDead)
         {
+            if (transform.position.y > _upperDeadZone || transform.position.y < _lowerDeadZone)
+            {
 
-            logic.GameOver();
-            _birdIsAlive = false;
+                logic.GameOver();
+                BirdIsAlive = false;
+                isDead = true;
+            }
         }
+
+        
 
         
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //gameOverSound.Play();
         logic.GameOver();
-        _birdIsAlive = false;
-        int scoreValue = int.Parse(score.text);
-        if (scoreValue > PlayerPrefs.GetInt("Highscore", 0))
+        if (!isDead)
         {
-            PlayerPrefs.SetInt("Highscore", scoreValue);
-            highscore.text = "High Score: " + scoreValue.ToString();
-            highscoreText.SetActive(true);
+            BirdIsAlive = false;
+            isDead = true;
+            
+            int scoreValue = int.Parse(score.text);
+            if (scoreValue > PlayerPrefs.GetInt("Highscore", 0))
+            {
+                PlayerPrefs.SetInt("Highscore", scoreValue);
+                highscore.text = "High Score: " + scoreValue.ToString();
+                highscoreText.SetActive(true);
+            
+            }
+            
             
         }
+
+        
+        
+       
 
         
     }
