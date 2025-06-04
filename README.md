@@ -23,7 +23,8 @@ This is a simple Flappy Bird built using **Unity** and **C#** as part of my lear
    ```bash
    git clone https://github.com/Erfan-Khan-Dhrubo/Flappy-Bird-Game.git
    ```
-2. Open the project in **Unity Hub**
+2. Open the project folder in Unity Editor.
+3. Play the scene to experience the game.
 
 
 ## 🧠 Learning Objectives
